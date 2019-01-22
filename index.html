@@ -1,25 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<link rel="stylesheet" href="./static/css/reset.css">
 <style>
-    .imgWrapper{
-        width: 600px;
+    * {
+        box-sizing: border-box;
+        user-select: auto;
     }
-    .img{
+
+    p {
+        margin: 0;
+    }
+
+    .title {
+        margin: 15px 0;
+        font-size: 1.5rem;
+    }
+
+    .content {
+        word-break: break-all;
+
+        font-size: 1.2rem;
+    }
+
+    .img {
         width: 100%;
     }
+
+    .img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    footer {
+        display: flex;
+    }
+
+    footer>div {
+        width: 50vw;
+        height: 3em;
+    }
+
+    .left {
+        padding: 5px;
+        background-color: rgb(254, 103, 0);
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .right {
+        padding: 5px;
+        background-color: rgb(224, 198, 181);
+        color: black;
+        font-size: 1.5rem;
+    }
 </style>
+
 <body>
-    <div>
-        尝试新的文件
-        <div class="imgWrapper">
-            <img src="./static/imgs/1.png" alt="" class="img">
+    <header>
+        <p></p>
+    </header>
+    <main>
+        <div>
+            <h5 class="title">1.Nike</h5>
+            <div class="content">
+                balbalbalbablablalbalbalbalbab
+                lablalbalbalbalbablablalbalbalbalbablablalbalb
+                albalbablablalbalbalbalbablablalbalbalbalbablablal
+            </div>
+            <div class="img" onclick="watchFullScreen('./static/imgs/0.jpg')">
+                <img src="./static/imgs/0.jpg" alt="">
+            </div>
         </div>
-    </div>
+        <div>
+            <h5 class="title">2.Nike</h5>
+            <div class="content">
+                balbalbalbablablalbalbalbalbab
+                lablalbalbalbalbablablalbalbalbalbablablalbalb
+                albalbablablalbalbalbalbablablalbalbalbalbablablal
+            </div>
+            <div class="img" onclick="watchFullScreen('./static/imgs/1.jpg')">
+                <img src="./static/imgs/1.jpg" alt="">
+            </div>
+        </div>
+        <div>
+            <h5 class="title">2.Nike</h5>
+            <div class="content">
+                balbalbalbablablalbalbalbalbab
+                lablalbalbalbalbablablalbalbalbalbablablalbalb
+                albalbablablalbalbalbalbablablalbalbalbalbablablal
+            </div>
+            <div class="img" onclick="watchFullScreen('./static/imgs/1.jpg')">
+                <img src="./static/imgs/1.jpg" alt="">
+            </div>
+        </div>
+        <div>
+            <h5 class="title">2.Nike</h5>
+            <div class="content">
+                balbalbalbablablalbalbalbalbab
+                lablalbalbalbalbablablalbalbalbalbablablalbalb
+                albalbablablalbalbalbalbablablalbalbalbalbablablal
+            </div>
+            <div class="img" onclick="watchFullScreen('./static/imgs/1.jpg')">
+                <img src="./static/imgs/1.jpg" alt="">
+            </div>
+        </div>
+        <footer>
+            <div class="left" onclick="copyText()">
+                <p>微信号</p>
+                <p id="content">123456789</p>
+            </div>
+            <div class="right">
+                <p>←长按复制</p>
+            </div>
+        </footer>
+    </main>
+    <script>
+        // window.onscroll=function(event){
+        //     console.log(event);
+        // }
+        function watchFullScreen(imgUrl) {
+            let div = document.createElement('div')
+            let img = document.createElement('img')
+            let styleObj = {
+                'position': 'fixed',
+                'top': '0',
+                'left': '0',
+                'width': '100%',
+                'height': '100%',
+                'backgroundColor': 'black',
+                'display': 'flex',
+                'align-items': 'center',
+            }
+            let attrObj = {
+                src: imgUrl,
+            }
+            for (let style in styleObj) {
+                div.style[style] = styleObj[style];
+            }
+            for (let attr in attrObj) {
+                img.setAttribute(attr, attrObj[attr])
+            }
+            div.onclick = closeDialog.bind(div),
+                div.setAttribute('id', 'dialog')
+            img.style.width = '100%'
+            div.appendChild(img);
+            document.body.appendChild(div);
+        }
+
+        function closeDialog(dom, aaa) {
+            document.body.removeChild(document.querySelector('#dialog'))
+            console.log('============')
+        }
+
+        function copyText(event) {
+            const input = document.createElement('input')
+            input.setAttribute('display', 'none')
+            document.body.appendChild(input)
+            input.setAttribute('type', 'text')
+            const copyValue = document.querySelector('#content').innerText
+            input.setAttribute('value', copyValue)
+            input.select()
+            document.execCommand('copy')
+            document.body.removeChild(input)
+        }
+    </script>
 </body>
+
 </html>
