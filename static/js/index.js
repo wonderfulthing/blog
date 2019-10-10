@@ -1,3 +1,7 @@
+$(function(){
+     //Calls the tocify method on your HTML div.
+    $("#toc").tocify();
+})
 function watchFullScreen(imgUrl) {
     let div = document.createElement('div')
     let img = document.createElement('img')
