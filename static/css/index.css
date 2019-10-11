@@ -3,51 +3,8 @@
     user-select: auto;
 }
 
-p {
-    margin: 0;
-}
-
-.title {
-    margin: 15px 0;
-    font-size: 1.5rem;
-}
-
-.content {
-    word-break: break-all;
-
-    font-size: 1.2rem;
-}
-
-.img {
-    width: 100%;
-}
-
-.img img {
-    width: 100%;
+html {
     height: 100%;
-}
-
-footer {
-    display: flex;
-}
-
-footer>div {
-    width: 50vw;
-    height: 3em;
-}
-
-.left {
-    padding: 5px;
-    background-color: rgb(254, 103, 0);
-    color: white;
-    font-size: 1.5rem;
-}
-
-.right {
-    padding: 5px;
-    background-color: rgb(224, 198, 181);
-    color: black;
-    font-size: 1.5rem;
 }
 
 h1 {
@@ -60,6 +17,90 @@ h1 {
     top: 50px;
 }
 
-.tocify-item.active{
+.tocify-item.active {
     color: blue;
+}
+
+body {
+    min-width: 1200px;
+}
+
+header {
+    box-shadow: 0 0 10px gray;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: #34e89e;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f34437a, #34e89e);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f3443c2, #34e89dc4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.nav a {
+    padding: 3px 5px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+    margin-right: 10px;
+    position: relative;
+}
+/* 
+.nav a:hover {
+    color: yellow;
+} */
+
+.nav a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: yellow;
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+.nav a:hover::before{
+    transform:  scaleX(1);
+}
+
+.unique {
+    width: 120px;
+    color: #e5eaefc2;
+    font-size: 20px;
+    font-family: '华文新魏';
+    position: absolute;
+    left: 15%;
+    top: calc(40% - 8px);
+}
+.container{
+    margin-top: 20px;
+    min-height: 60vh;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 6px;
+    background: #bdbdbd;
+}
+
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    background: -webkit-gradient(linear, left);
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #fff;
 }
